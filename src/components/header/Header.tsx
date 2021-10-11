@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
         height: 60,
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 40,
+        alignItems: "center"
     },
     logo: {
         height: 40,
