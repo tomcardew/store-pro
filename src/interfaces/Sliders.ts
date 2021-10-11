@@ -8,5 +8,5 @@ export interface FullscreenSliderElement {
     subtitle?: string;
     image: string;
 
-    callToActionUrl?: CallToAction;
+    callToAction?: CallToAction;
 }

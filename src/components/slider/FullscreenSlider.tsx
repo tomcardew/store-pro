@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
         height: "100%",
         objectFit: "contain",
     },
+    hidden: {
+        display: "none",
+    },
     callToAction: {
         position: "absolute",
         width: "calc(100% - 80px)",
@@ -22,10 +25,11 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        transition: "300ms linear all",
     },
     callToActionButton: {
         marginLeft: -5,
-        marginTop: 10
+        marginTop: 10,
     },
     callToActionTitleContainer: {
         position: "absolute",
@@ -35,7 +39,7 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 0,
         color: "white",
-        maxWidth: 500
+        maxWidth: 350,
     },
     callToActionTitle: {
         fontWeight: 600,
@@ -53,29 +57,49 @@ interface IFullscreenSlider {
 }
 
 const FullscreenSlider = ({ items }: IFullscreenSlider) => {
-    const [state, setState] = useState({
-        selectedItem: 0,
-    });
+
+    const [state, setState] = useState(0);
 
     return (
         <div className={css(styles.container)}>
-            {items.map((item) => (
-                <img className={css(styles.image)} src={item.image} alt="" />
+            {items.map((item, i) => (
+                <img
+                    className={css(
+                        styles.image,
+                        i !== state ? styles.hidden : null
+                    )}
+                    src={item.image}
+                    alt=""
+                />
             ))}
-            <div className={css(styles.callToAction)}>
+            <div
+                className={css(styles.callToAction)}
+                style={{
+                    marginLeft: 10 * state,
+                }}
+            >
                 <span className={css(styles.callToActionTitleContainer)}>
                     <p className={css(styles.callToActionTitle)}>
-                        {items[state.selectedItem].title}
+                        {items[state].title}
                     </p>
-                    {items[state.selectedItem].subtitle && (
+                    {items[state].subtitle && (
                         <p className={css(styles.callToActionSubtitle)}>
-                            {items[state.selectedItem].subtitle}
+                            {items[state].subtitle}
                         </p>
                     )}
-                    <Button style={styles.callToActionButton}>Ver más</Button>
+                    <Button style={styles.callToActionButton}>
+                        {items[state].callToAction?.label ||
+                            "Ver más"}
+                    </Button>
                 </span>
-                <SliderIndicator quantity={3} selectedIndex={0} />
             </div>
+            {items.length > 1 && (
+                <SliderIndicator
+                    quantity={items.length}
+                    selectedIndex={state}
+                    onClick={(index) => setState(index)}
+                />
+            )}
         </div>
     );
 };

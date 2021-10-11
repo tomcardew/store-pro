@@ -13,8 +13,7 @@ const styles = StyleSheet.create({
         fontWeight: 600,
         transform: "scale(1)",
         ":hover": {
-            cursor: "pointer",
-            borderBottom: "2px solid white"
+            cursor: "pointer"
         },
         ":active": {
             transform: "scale(0.95)"

@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         margin: 2,
         opacity: 0.25,
+        ":hover": {
+            opacity: 0.5,
+            cursor: "pointer",
+        },
     },
     selectedElement: {
         opacity: 1,
@@ -24,11 +28,23 @@ const styles = StyleSheet.create({
 interface ISliderIndicator {
     quantity: number;
     selectedIndex: number;
+
+    onClick?: (index: number) => void;
 }
 
-const SliderIndicator = ({ quantity, selectedIndex }: ISliderIndicator) => {
+const SliderIndicator = ({
+    quantity,
+    selectedIndex,
+    onClick = () => {},
+}: ISliderIndicator) => {
     return (
-        <div className={css(styles.container)}>
+        <div
+            className={css(styles.container)}
+            style={{
+                width: 20 * quantity,
+                left: `calc(50% - ${(20 * quantity)/2}px)`,
+            }}
+        >
             {[...Array(quantity)].map((e, i) => (
                 <div
                     className={css(
@@ -36,6 +52,9 @@ const SliderIndicator = ({ quantity, selectedIndex }: ISliderIndicator) => {
                         i === selectedIndex ? styles.selectedElement : null
                     )}
                     key={i}
+                    onClick={() => {
+                        onClick(i);
+                    }}
                 ></div>
             ))}
         </div>
