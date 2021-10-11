@@ -1,3 +1,4 @@
+import { Footer } from "../footer";
 import { Header } from "../header"
 
 interface IHeaderFooter {
@@ -13,6 +14,7 @@ const HeaderFooter = ({ children }: IHeaderFooter) => {
         }}>
             <Header />
             {children}
+            <Footer />
         </div>
     )
 };

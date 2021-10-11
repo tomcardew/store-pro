@@ -4,7 +4,7 @@ const LandingView = () => {
 
     return (
         <HeaderFooter>
-            Holis
+            <div style={{minHeight: 'calc(100vh - 150px)'}}></div>
         </HeaderFooter>
     )
 

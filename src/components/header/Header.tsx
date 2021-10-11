@@ -1,8 +1,8 @@
 import { css, StyleSheet } from "aphrodite";
 import { useHistory } from "react-router-dom";
 
-import { HeaderLink } from "../button";
-import Section from "../layout/Section";
+import { HeaderLink, IconButton } from "../button";
+import { Section } from "../layout";
 
 const styles = StyleSheet.create({
     container: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        marginBottom: 40
+        marginBottom: 40,
     },
     logo: {
         height: 40,
@@ -35,15 +35,14 @@ const links = [
 ];
 
 interface IHeader {
-    activePath?: string
+    activePath?: string;
 }
 
 const Header = ({ activePath = "/" }: IHeader) => {
-
-    const history = useHistory()
+    const history = useHistory();
 
     const handleLinkClick = (path: string) => {
-        history.push(path)
+        history.push(path);
     };
 
     return (
@@ -66,7 +65,12 @@ const Header = ({ activePath = "/" }: IHeader) => {
                 ))}
             </Section>
             <Section flex={1} justify="flex-end">
-                3
+                <IconButton imagePath="assets/icons/search.png" />
+                <IconButton imagePath="assets/icons/shopping-cart.png" />
+                <IconButton
+                    circular
+                    imagePath="assets/icons/user-male-circle.png"
+                />
             </Section>
         </div>
     );
