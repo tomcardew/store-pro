@@ -5,7 +5,7 @@ import {
     Redirect
 } from 'react-router-dom'
 
-import LandingView from './views/landing'
+import LandingView from './views/landing/landing'
 
 const Collections = () => <div>Holis</div>
 

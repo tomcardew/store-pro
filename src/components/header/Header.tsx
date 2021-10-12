@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         height: 60,
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
     logo: {
         height: 40,
@@ -46,14 +46,34 @@ const Header = ({ activePath = "/" }: IHeader) => {
 
     return (
         <div className={css(styles.container)}>
-            <Section flex={1} justify="flex-start">
-                <img
-                    className={css(styles.logo)}
-                    src="https://logos-marcas.com/wp-content/uploads/2020/04/HM-Logo.png"
-                    alt="Logo"
-                />
+            <Section columns={3} flex={1} justify="flex-start">
+                <div>
+                    <img
+                        className={css(styles.logo)}
+                        src="https://logos-marcas.com/wp-content/uploads/2020/04/HM-Logo.png"
+                        alt="Logo"
+                    />
+                </div>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    {links.map((item) => (
+                        <HeaderLink
+                            active={item.path === activePath}
+                            onClick={() => handleLinkClick(item.path)}
+                        >
+                            {item.name}
+                        </HeaderLink>
+                    ))}
+                </div>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                    <IconButton imagePath="assets/icons/search.png" />
+                    <IconButton imagePath="assets/icons/shopping-cart.png" />
+                    <IconButton
+                        circular
+                        imagePath="assets/icons/user-male-circle.png"
+                    />
+                </div>
             </Section>
-            <Section flex={2}>
+            {/* <Section columns={3} flex={2}>
                 {links.map((item) => (
                     <HeaderLink
                         active={item.path === activePath}
@@ -63,14 +83,14 @@ const Header = ({ activePath = "/" }: IHeader) => {
                     </HeaderLink>
                 ))}
             </Section>
-            <Section flex={1} justify="flex-end">
+            <Section columns={4} flex={1} justify="flex-end">
                 <IconButton imagePath="assets/icons/search.png" />
                 <IconButton imagePath="assets/icons/shopping-cart.png" />
                 <IconButton
                     circular
                     imagePath="assets/icons/user-male-circle.png"
                 />
-            </Section>
+            </Section> */}
         </div>
     );
 };
