@@ -12,6 +12,8 @@ interface ISection {
     align?: "flex-start" | "center" | "flex-end";
     flex?: number;
     columns?: number;
+    colGap?: number;
+    rowGap?: number;
     children?: JSX.Element | JSX.Element[] | string | string[];
 }
 
@@ -20,7 +22,9 @@ const Section = ({
     justify = "center",
     align = "center",
     flex = 1,
-    columns = 4
+    columns = 4,
+    colGap = 0,
+    rowGap = 0
 }: ISection) => {
     return (
         <div
@@ -29,7 +33,9 @@ const Section = ({
                 flex: flex,
                 justifyContent: justify,
                 alignItems: align,
-                gridTemplateColumns: `repeat(${columns}, 1fr)`
+                gridTemplateColumns: `repeat(${columns}, 1fr)`,
+                columnGap: colGap,
+                rowGap
             }}
         >
             {children}

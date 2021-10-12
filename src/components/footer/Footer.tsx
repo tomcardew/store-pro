@@ -5,10 +5,15 @@ const style = StyleSheet.create({
     container: {
         backgroundColor: '#F0F0F0',
         fontWeight: 300,
-        height: 50
+        height: 50,
+        padding: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        marginTop: 20
     },
     copyright: {
-        fontSize: 12
+        fontSize: 12,
+        textAlign: 'center'
     }
 })
 

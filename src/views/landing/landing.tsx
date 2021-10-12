@@ -1,8 +1,8 @@
-import { Category } from "../../components/category";
-import { HeaderFooter, Section } from "../../components/layout";
+import { HeaderFooter } from "../../components/layout";
 import { FullscreenSlider } from "../../components/slider";
 import { FullscreenSliderElement } from "../../interfaces/Sliders";
 import Categories from "./categories";
+import Featured from "./featured";
 
 const defaultItems: FullscreenSliderElement[] = [
     {
@@ -42,6 +42,7 @@ const LandingView = () => {
         <HeaderFooter>
             <FullscreenSlider items={defaultItems} />
             <Categories />
+            <Featured />
         </HeaderFooter>
     );
 };
