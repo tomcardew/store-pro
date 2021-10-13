@@ -3,7 +3,7 @@ import { css, StyleSheet } from "aphrodite";
 const styles = StyleSheet.create({
     container: {
         display: "grid",
-        height: "100%",
+        height: "100%"
     },
 });
 

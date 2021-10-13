@@ -4,27 +4,27 @@ import { Section } from "../../components/layout";
 
 const data = [
     {
-        imageUrl: "https://http2.mlstatic.com/resources/frontend/homes-korriban/assets/images/ecosystem/payment.svg",
+        imageUrl: "https://img.icons8.com/fluency-systems-regular/75/000000/card-in-use.png",
         title: "Elige cómo pagar",
-        description: "Con Mercado Pago, paga con tarjeta, débito o efectivo. También puedes pagar en hasta 12 mensualidades sin tarjeta con Mercado Crédito.",
+        description: "Paga con tarjeta, débito o efectivo. También puedes pagar en hasta 12 mensualidades sin tarjeta con Crédito+.",
         link: {
-            label: "Cómo pagar con Mercado Pago",
+            label: "Ver métodos de pago",
             path: "/about/payment-methods",
         },
     },
     {
-        imageUrl: "https://http2.mlstatic.com/resources/frontend/homes-korriban/assets/images/ecosystem/shipping.svg",
+        imageUrl: "https://img.icons8.com/fluency-systems-regular/75/000000/in-transit.png",
         title: "Envío gratis desde $ 299",
-        description: "Con solo estar registrado en Mercado Libre, tienes envíos gratis en millones de productos seleccionados.",
+        description: "Con solo estar registrado, tienes envíos gratis en millones de productos seleccionados.",
         link: {
             label: "Conoce más sobre este beneficio",
             path: "/about/free-shipping",
         },
     },
     {
-        imageUrl: "https://http2.mlstatic.com/resources/frontend/homes-korriban/assets/images/ecosystem/protected.svg",
+        imageUrl: "https://img.icons8.com/fluency-systems-regular/75/000000/keyhole-shield.png",
         title: "Seguridad, de principio a fin",
-        description: "¿No te gusta? ¡Devuélvelo! En Mercado Libre, no hay nada que no puedas hacer, porque estás siempre protegido.",
+        description: "¿No te gusta? ¡Devuélvelo! No hay nada que no puedas hacer, porque estás siempre protegido.",
         link: {
             label: "Cómo te protegemos",
             path: "/about/security",

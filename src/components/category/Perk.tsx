@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
         padding: 20,
         border: "1px solid rgba(0, 0, 0, 0.1)",
         marginTop: 10,
+        height: 250
     },
     image: {
         height: 100,
@@ -30,11 +31,12 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     link: {
-        color: "#3483fa",
+        color: "black",
         fontSize: 14,
         fontWeight: 500,
         margin: 10,
         textAlign: "center",
+        textDecoration: "underline",
         ":hover": {
             cursor: "pointer",
         },

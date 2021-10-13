@@ -4,7 +4,7 @@ import { Section } from ".";
 const styles = StyleSheet.create({
     container: {
         padding: 20,
-        backgroundColor: "#F1F1F1",
+        border: "1px solid rgba(0, 0, 0, 0.1)",
         marginTop: 20
     },
     title: {
