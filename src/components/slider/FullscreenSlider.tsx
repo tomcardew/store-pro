@@ -30,12 +30,14 @@ const styles = StyleSheet.create({
     callToActionButton: {
         marginLeft: -5,
         marginTop: 10,
+        backgroundColor: 'white',
+        color: 'black'
     },
     callToActionTitleContainer: {
         position: "absolute",
         left: 40,
         bottom: 40,
-        backgroundColor: "#00000090",
+        backgroundColor: "#000000",
         padding: 20,
         borderRadius: 0,
         color: "white",

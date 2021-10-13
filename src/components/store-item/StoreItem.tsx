@@ -1,5 +1,6 @@
 import { css, StyleSheet } from "aphrodite";
 import { numberToPriceTag } from "../../utils/index";
+import { useState } from "react";
 
 const styles = StyleSheet.create({
     container: {
@@ -24,7 +25,11 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         paddingLeft: 10,
-        paddingRight: 10
+        paddingRight: 10,
+        ":hover": {
+            textDecoration: "underline",
+            cursor: "pointer",
+        },
     },
     price: {
         position: "absolute",
@@ -45,6 +50,30 @@ const styles = StyleSheet.create({
         right: 20,
         height: 24,
         width: 24,
+        transition: "100ms linear all",
+        ":hover": {
+            transform: "scale(0.85)",
+            cursor: "pointer",
+        },
+    },
+    addToCart: {
+        backgroundColor: "white",
+        fontSize: 12,
+        fontWeight: 500,
+        textAlign: "center",
+        position: "absolute",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: 100,
+        height: 40,
+        left: "calc(50% - 50px)",
+        top: "calc(50% - 15px)",
+        boxShadow:
+            "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;",
+        ":hover": {
+            cursor: "pointer",
+        },
     },
 });
 
@@ -57,19 +86,35 @@ interface IStoreItem {
 }
 
 const StoreItem = ({ imageUrl, label, price, slug, liked }: IStoreItem) => {
+    const [likeHover, setLikeHover] = useState(false);
+    const [hover, setHover] = useState(false);
+
     return (
-        <div className={css(styles.container)}>
+        <div
+            className={css(styles.container)}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+        >
             <img className={css(styles.image)} src={imageUrl} alt={label} />
             <span className={css(styles.price)}>{numberToPriceTag(price)}</span>
             <span className={css(styles.label)}>{label}</span>
+            {hover && (
+                <span className={css(styles.addToCart)}>
+                    Agregar al carrito
+                </span>
+            )}
             <img
                 className={css(styles.like)}
                 src={
-                    liked
+                    likeHover
+                        ? "assets/icons/like-filled.png"
+                        : liked
                         ? "assets/icons/like-filled-red.png"
                         : "assets/icons/like.png"
                 }
                 alt="Like or dislike"
+                onMouseEnter={() => setLikeHover(true)}
+                onMouseLeave={() => setLikeHover(false)}
             />
         </div>
     );
