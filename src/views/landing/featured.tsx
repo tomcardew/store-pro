@@ -1,3 +1,4 @@
+import { useWindowWidth } from "@react-hook/window-size";
 import { Section, TitleSection } from "../../components/layout";
 import { StoreItem } from "../../components/store-item";
 
@@ -5,6 +6,7 @@ const items = [
     {
         label: "Chamarra impermeable acolchada",
         price: 799,
+        prevPrice: 1099,
         slug: "chamarra-impermable-acolchada-s1hg",
         imageUrl:
             "https://lp2.hm.com/hmgoepprod?set=source[/5f/d1/5fd177133f08e43c2e1de0fc1b959f33c0f54763.jpg],origin[dam],category[],type[DESCRIPTIVESTILLLIFE],res[z],hmver[2]&call=url[file:/product/main]",
@@ -53,12 +55,21 @@ const items = [
 ];
 
 const Featured = () => {
+    const width = useWindowWidth();
+
+    const calculateSectionCols = (): number => {
+        if (width > 1000) return 6;
+        if (width > 750) return 4;
+        return 2
+    };
+
     return (
         <TitleSection title="Lo más vendido">
-            <Section colGap={20} rowGap={20} columns={6}>
+            <Section colGap={20} rowGap={20} columns={calculateSectionCols()}>
                 {items.map((element) => (
                     <StoreItem
                         label={element.label}
+                        prevPrice={element.prevPrice}
                         price={element.price}
                         slug={element.slug}
                         imageUrl={element.imageUrl}

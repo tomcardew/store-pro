@@ -1,3 +1,4 @@
-import Category from "./Category"
+import Category from "./Category";
+import Perk from "./Perk";
 
-export { Category }
+export { Category, Perk };

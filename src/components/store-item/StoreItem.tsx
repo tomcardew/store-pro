@@ -69,11 +69,17 @@ const styles = StyleSheet.create({
         height: 40,
         left: "calc(50% - 50px)",
         top: "calc(50% - 15px)",
-        boxShadow:
-            "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;",
+        transition: '300ms linear all',
+        // boxShadow:
+        // "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;",
         ":hover": {
             cursor: "pointer",
         },
+    },
+    discount: {
+        marginRight: 2,
+        textDecoration: "line-through",
+        opacity: 0.5,
     },
 });
 
@@ -81,11 +87,19 @@ interface IStoreItem {
     imageUrl?: string;
     label: string;
     price: number;
+    prevPrice?: number;
     slug: string;
     liked?: boolean;
 }
 
-const StoreItem = ({ imageUrl, label, price, slug, liked }: IStoreItem) => {
+const StoreItem = ({
+    imageUrl,
+    label,
+    price,
+    prevPrice = 0,
+    slug,
+    liked,
+}: IStoreItem) => {
     const [likeHover, setLikeHover] = useState(false);
     const [hover, setHover] = useState(false);
 
@@ -96,13 +110,23 @@ const StoreItem = ({ imageUrl, label, price, slug, liked }: IStoreItem) => {
             onMouseLeave={() => setHover(false)}
         >
             <img className={css(styles.image)} src={imageUrl} alt={label} />
-            <span className={css(styles.price)}>{numberToPriceTag(price)}</span>
+            <span className={css(styles.price)}>
+                {prevPrice > 0 && (
+                    <span className={css(styles.discount)}>
+                        {numberToPriceTag(prevPrice)}
+                    </span>
+                )}
+                {numberToPriceTag(price)}
+            </span>
             <span className={css(styles.label)}>{label}</span>
-            {hover && (
-                <span className={css(styles.addToCart)}>
-                    Agregar al carrito
-                </span>
-            )}
+            <span
+                className={css(styles.addToCart)}
+                style={{
+                    opacity: hover ? 1 : 0,
+                }}
+            >
+                Agregar al carrito
+            </span>
             <img
                 className={css(styles.like)}
                 src={

@@ -3,6 +3,7 @@ import { FullscreenSlider } from "../../components/slider";
 import { FullscreenSliderElement } from "../../interfaces/Sliders";
 import Categories from "./categories";
 import Featured from "./featured";
+import Perks from "./perks";
 
 const defaultItems: FullscreenSliderElement[] = [
     {
@@ -43,6 +44,7 @@ const LandingView = () => {
             <FullscreenSlider items={defaultItems} />
             <Categories />
             <Featured />
+            <Perks />
         </HeaderFooter>
     );
 };
