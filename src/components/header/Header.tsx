@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     logo: {
         height: 40,
         objectFit: "contain",
-    },
+    }
 });
 
 const links = [
@@ -50,7 +50,7 @@ const Header = ({ activePath = "/" }: IHeader) => {
                 <div>
                     <img
                         className={css(styles.logo)}
-                        src="logo.png"
+                        src="logo.svg"
                         alt="Logo"
                     />
                 </div>

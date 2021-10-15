@@ -2,3 +2,33 @@ body {
   margin: 0;
   font-family: Montserrat;
 }
+
+.slideInLeft {
+  animation-name: slideInLeft;
+  animation-duration: 300ms;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 300ms;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-1000px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
