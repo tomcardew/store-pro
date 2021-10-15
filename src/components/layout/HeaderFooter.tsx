@@ -7,7 +7,7 @@ import HeaderMobile from '../header/HeaderMobile';
 const style = StyleSheet.create({
     container: {
         padding: 40,
-        paddingTop: 0,
+        paddingTop: 60,
         paddingBottom: 0,
         minWidth: 400,
         "@media (max-width: 600px)": {

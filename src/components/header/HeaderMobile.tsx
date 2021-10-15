@@ -10,9 +10,13 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: 60,
+        top: 0,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        position: 'fixed',
+        backgroundColor: 'white',
+        zIndex: 1000
     },
     logo: {
         height: 40,

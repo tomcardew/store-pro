@@ -8,9 +8,14 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: 60,
+        top: 0,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        position: 'fixed',
+        left: 0,
+        backgroundColor: 'white',
+        zIndex: 1000
     },
     logo: {
         height: 40,
@@ -47,7 +52,7 @@ const Header = ({ activePath = "/" }: IHeader) => {
     return (
         <div className={css(styles.container)}>
             <Section columns={3} flex={1} justify="flex-start">
-                <div>
+                <div style={{ paddingLeft: 20 }}>
                     <img
                         className={css(styles.logo)}
                         src="logo.svg"
@@ -64,7 +69,7 @@ const Header = ({ activePath = "/" }: IHeader) => {
                         </HeaderLink>
                     ))}
                 </div>
-                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: 20 }}>
                     <IconButton imagePath="assets/icons/search.png" />
                     <IconButton imagePath="assets/icons/shopping-cart.png" />
                     <IconButton
