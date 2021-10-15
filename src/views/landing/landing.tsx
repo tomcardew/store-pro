@@ -7,11 +7,11 @@ import Perks from "./perks";
 
 const defaultItems: FullscreenSliderElement[] = [
     {
-        title: "La sudadera con capucha",
-        subtitle: "Es la prenda urbana de moda, lúcela a tu manera",
-        image: "https://www2.hm.com/content/dam/men_s04/juli_2021/3214e/3214E-3x2-the-hoodie.jpg",
+        title: "Gran rebaja",
+        subtitle: "Aprovecha hasta un 50% de descuento en toda la tienda",
+        image: "https://i.pinimg.com/originals/32/01/98/320198b81b16a7eb44f0a2f9dbdbabc5.png",
         callToAction: {
-            label: "Compra ahora",
+            label: "Ver ofertas",
             url: "",
         },
     },

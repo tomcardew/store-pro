@@ -50,7 +50,7 @@ const Header = ({ activePath = "/" }: IHeader) => {
                 <div>
                     <img
                         className={css(styles.logo)}
-                        src="https://logos-marcas.com/wp-content/uploads/2020/04/HM-Logo.png"
+                        src="logo.png"
                         alt="Logo"
                     />
                 </div>
