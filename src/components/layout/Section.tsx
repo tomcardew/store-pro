@@ -14,6 +14,7 @@ interface ISection {
     columns?: number;
     colGap?: number;
     rowGap?: number;
+    style?: any;
     children?: JSX.Element | JSX.Element[] | string | string[];
 }
 
@@ -24,11 +25,12 @@ const Section = ({
     flex = 1,
     columns = 4,
     colGap = 0,
-    rowGap = 0
+    rowGap = 0,
+    style = null
 }: ISection) => {
     return (
         <div
-            className={css(styles.container)}
+            className={css(styles.container, style)}
             style={{
                 flex: flex,
                 justifyContent: justify,
