@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         zIndex: 1000
     },
     logo: {
-        height: 40,
+        height: 30,
         objectFit: "contain",
     }
 });
