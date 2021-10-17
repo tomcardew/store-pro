@@ -1,4 +1,5 @@
 import { css, StyleSheet } from "aphrodite";
+import { Badge } from "../badge";
 
 const styles = StyleSheet.create({
     container: {
@@ -8,6 +9,7 @@ const styles = StyleSheet.create({
         ":hover": {
             cursor: "pointer",
         },
+        position: 'relative'
     },
     image: {
         height: "100%",
@@ -19,6 +21,7 @@ const styles = StyleSheet.create({
 interface IIconButton {
     imagePath?: string;
     circular?: boolean;
+    badgeCount?: number;
 
     onClick?: () => void;
 }
@@ -26,10 +29,12 @@ interface IIconButton {
 const IconButton = ({
     imagePath,
     circular,
-    onClick = () => {},
+    badgeCount,
+    onClick = () => { },
 }: IIconButton) => {
     return (
         <div className={css(styles.container)} onClick={onClick}>
+            {badgeCount && <Badge count={badgeCount} />}
             <img
                 className={css(styles.image)}
                 style={{

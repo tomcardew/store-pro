@@ -1,5 +1,5 @@
 import { css, StyleSheet } from "aphrodite";
-import { Column, Section } from "../layout";
+import { Column } from "../layout";
 
 const styles = StyleSheet.create({
     backdrop: {
