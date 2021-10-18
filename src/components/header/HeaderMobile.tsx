@@ -83,11 +83,11 @@ const HeaderMobile = () => {
                         paddingRight: 20,
                     }}
                 >
-                    <IconButton imagePath="/assets/icons/search.png" />
-                    <IconButton imagePath="/assets/icons/shopping-cart.png" />
+                    <IconButton imagePath="/assets/icons/search.svg" />
+                    <IconButton imagePath="/assets/icons/shopping-cart.svg" />
                     <IconButton
                         circular
-                        imagePath="/assets/icons/user-male-circle.png"
+                        imagePath="/assets/icons/user-male-circle.svg"
                     />
                 </div>
             </Section>

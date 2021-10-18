@@ -59,11 +59,11 @@ const Header = () => {
                     ))}
                 </div>
                 <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: 20 }}>
-                    <IconButton imagePath="/assets/icons/search.png" />
-                    <IconButton imagePath="/assets/icons/shopping-cart.png" badgeCount={2} />
+                    <IconButton imagePath="/assets/icons/search.svg" />
+                    <IconButton imagePath="/assets/icons/shopping-cart.svg" badgeCount={2} />
                     <IconButton
                         circular
-                        imagePath="/assets/icons/user-male-circle.png"
+                        imagePath="/assets/icons/user-male-circle.svg"
                     />
                 </div>
             </Section>

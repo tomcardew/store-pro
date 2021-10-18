@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         },
     },
     active: {
-        border: "3px solid black",
+        transform: "scale(0.9)"
     },
 });
 
