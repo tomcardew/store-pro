@@ -1,6 +1,6 @@
 import { css, StyleSheet } from "aphrodite";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { HeaderLink, IconButton } from "../button";
 import { Section } from "../layout";
@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     logo: {
         height: 30,
         objectFit: "contain",
+        cursor: 'pointer'
     },
     menuIcon: {
         height: 24,
@@ -44,11 +45,8 @@ export const links = [
     },
 ];
 
-interface IHeader {
-    activePath?: string;
-}
-
-const HeaderMobile = ({ activePath = "/" }: IHeader) => {
+const HeaderMobile = () => {
+    const location = useLocation()
     const history = useHistory();
 
     const handleLinkClick = (path: string) => {
@@ -75,6 +73,7 @@ const HeaderMobile = ({ activePath = "/" }: IHeader) => {
                         className={css(styles.logo)}
                         src="/icon.svg"
                         alt="Logo"
+                        onClick={() => handleLinkClick('/')}
                     />
                 </div>
                 <div
@@ -97,7 +96,7 @@ const HeaderMobile = ({ activePath = "/" }: IHeader) => {
                     {links.map((item) => (
                         <div style={{ marginTop: 40 }}>
                             <HeaderLink
-                                active={item.path === activePath}
+                                active={item.path === location.pathname}
                                 onClick={() => handleLinkClick(item.path)}
                             >
                                 {item.name}

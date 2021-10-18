@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     logo: {
         height: 30,
         objectFit: "contain",
+        cursor: 'pointer'
     }
 });
 
@@ -44,6 +45,7 @@ const Header = () => {
                         className={css(styles.logo)}
                         src="/logo.svg"
                         alt="Logo"
+                        onClick={() => handleLinkClick('/')}
                     />
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>

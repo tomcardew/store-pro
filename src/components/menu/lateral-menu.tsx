@@ -46,7 +46,7 @@ const LateralMenu = ({ children, onClose = () => {} }: ILateralMenu) => {
             <div className={css(styles.backdrop) + " fadeIn"} />
             <img
                 className={css(styles.icon) + " fadeIn"}
-                src="assets/icons/close.svg"
+                src="/assets/icons/close.svg"
                 alt="Cerrar menú"
                 onClick={onClose}
             />
