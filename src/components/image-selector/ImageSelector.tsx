@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         objectFit: "contain",
         width: "calc(100% - 50px)",
         height: "auto",
-        maxHeight: 400,
+        maxHeight: 400
     },
 });
 
@@ -43,7 +43,7 @@ const ImageSelector = ({ width = 300, images = [] }: IImageSelector) => {
             {images.length > 0 && (
                 <img
                     src={images[current]}
-                    alt="s"
+                    alt={images[current]}
                     className={css(styles.mainImage)}
                 />
             )}
@@ -52,7 +52,7 @@ const ImageSelector = ({ width = 300, images = [] }: IImageSelector) => {
                     <MiniImage
                         image={image}
                         active={index === current}
-                        onClick={() => setCurrent(index)}
+                        onHover={() => setCurrent(index)}
                     />
                 ))}
             </Column>

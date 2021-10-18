@@ -24,10 +24,11 @@ interface IMiniImage {
     active?: boolean;
     image: string;
 
-    onClick?: () => void
+    onClick?: () => void;
+    onHover?: () => void;
 }
 
-const MiniImage = ({ active, image, onClick = () => {} }: IMiniImage) => {
+const MiniImage = ({ active, image, onClick = () => {}, onHover = () => {} }: IMiniImage) => {
     return (
         <div
             className={css(
@@ -35,6 +36,7 @@ const MiniImage = ({ active, image, onClick = () => {} }: IMiniImage) => {
                 active ? styles.active : null
             )}
             onClick={onClick}
+            onMouseEnter={onHover}
         >
             <img src={image} alt={image} className={css(styles.image)} />
         </div>
