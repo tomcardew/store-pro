@@ -1,8 +1,7 @@
 import { useWindowWidth } from "@react-hook/window-size";
 import { css, StyleSheet } from "aphrodite";
 import { Footer } from "../footer";
-import { Header } from "../header";
-import HeaderMobile from '../header/HeaderMobile';
+import { Header, HeaderMobile } from "../header";
 
 const style = StyleSheet.create({
     container: {

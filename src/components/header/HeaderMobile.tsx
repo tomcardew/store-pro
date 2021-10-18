@@ -29,17 +29,17 @@ const styles = StyleSheet.create({
     },
 });
 
-const links = [
+export const links = [
     {
-        name: "HOME",
+        name: "INICIO",
         path: "/",
     },
     {
-        name: "COLLECTIONS",
+        name: "COLECCIONES",
         path: "/collections",
     },
     {
-        name: "FEATURED",
+        name: "OFERTAS",
         path: "/featured",
     },
 ];
@@ -66,14 +66,14 @@ const HeaderMobile = ({ activePath = "/" }: IHeader) => {
             <Section columns={3} justify="flex-start">
                 <div style={{ paddingLeft: 0 }}>
                     <IconButton
-                        imagePath="assets/icons/menu.svg"
+                        imagePath="/assets/icons/menu.svg"
                         onClick={toggleMenu}
                     />
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <img
                         className={css(styles.logo)}
-                        src="icon.svg"
+                        src="/icon.svg"
                         alt="Logo"
                     />
                 </div>
@@ -84,11 +84,11 @@ const HeaderMobile = ({ activePath = "/" }: IHeader) => {
                         paddingRight: 20,
                     }}
                 >
-                    <IconButton imagePath="assets/icons/search.png" />
-                    <IconButton imagePath="assets/icons/shopping-cart.png" />
+                    <IconButton imagePath="/assets/icons/search.png" />
+                    <IconButton imagePath="/assets/icons/shopping-cart.png" />
                     <IconButton
                         circular
-                        imagePath="assets/icons/user-male-circle.png"
+                        imagePath="/assets/icons/user-male-circle.png"
                     />
                 </div>
             </Section>

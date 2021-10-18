@@ -1,6 +1,7 @@
 import { css, StyleSheet } from "aphrodite";
 import { numberToPriceTag } from "../../utils/index";
 import { useState } from "react";
+import { useHistory } from 'react-router-dom';
 
 const styles = StyleSheet.create({
     container: {
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
         height: 40,
         left: "calc(50% - 50px)",
         top: "calc(50% - 15px)",
-        transition: '300ms linear all',
+        transition: "300ms linear all",
         // boxShadow:
         // "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;",
         ":hover": {
@@ -100,8 +101,13 @@ const StoreItem = ({
     slug,
     liked,
 }: IStoreItem) => {
+    const history = useHistory()
     const [likeHover, setLikeHover] = useState(false);
     const [hover, setHover] = useState(false);
+
+    const openUrl = (slug: string) => {
+        history.push('/product/' + slug)
+    }
 
     return (
         <div
@@ -118,7 +124,7 @@ const StoreItem = ({
                 )}
                 {numberToPriceTag(price)}
             </span>
-            <span className={css(styles.label)}>{label}</span>
+            <span className={css(styles.label)} onClick={() => openUrl(slug)}>{label}</span>
             <span
                 className={css(styles.addToCart)}
                 style={{

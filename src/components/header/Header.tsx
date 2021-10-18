@@ -1,8 +1,9 @@
 import { css, StyleSheet } from "aphrodite";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { HeaderLink, IconButton } from "../button";
 import { Section } from "../layout";
+import { links } from "./HeaderMobile";
 
 const styles = StyleSheet.create({
     container: {
@@ -23,26 +24,12 @@ const styles = StyleSheet.create({
     }
 });
 
-const links = [
-    {
-        name: "HOME",
-        path: "/",
-    },
-    {
-        name: "COLLECTIONS",
-        path: "/collections",
-    },
-    {
-        name: "FEATURED",
-        path: "/featured",
-    },
-];
+// interface IHeader {
+//     activePath?: string;
+// }
 
-interface IHeader {
-    activePath?: string;
-}
-
-const Header = ({ activePath = "/" }: IHeader) => {
+const Header = () => {
+    const location = useLocation()
     const history = useHistory();
 
     const handleLinkClick = (path: string) => {
@@ -55,14 +42,14 @@ const Header = ({ activePath = "/" }: IHeader) => {
                 <div style={{ paddingLeft: 20 }}>
                     <img
                         className={css(styles.logo)}
-                        src="logo.svg"
+                        src="/logo.svg"
                         alt="Logo"
                     />
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     {links.map((item) => (
                         <HeaderLink
-                            active={item.path === activePath}
+                            active={item.path === location.pathname}
                             onClick={() => handleLinkClick(item.path)}
                         >
                             {item.name}
@@ -70,11 +57,11 @@ const Header = ({ activePath = "/" }: IHeader) => {
                     ))}
                 </div>
                 <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: 20 }}>
-                    <IconButton imagePath="assets/icons/search.png" />
-                    <IconButton imagePath="assets/icons/shopping-cart.png" badgeCount={2} />
+                    <IconButton imagePath="/assets/icons/search.png" />
+                    <IconButton imagePath="/assets/icons/shopping-cart.png" badgeCount={2} />
                     <IconButton
                         circular
-                        imagePath="assets/icons/user-male-circle.png"
+                        imagePath="/assets/icons/user-male-circle.png"
                     />
                 </div>
             </Section>
