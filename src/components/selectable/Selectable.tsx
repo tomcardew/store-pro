@@ -23,10 +23,11 @@ const styles = StyleSheet.create({
 
 interface ISelectable {
     list?: any[]
-    selectedIndex?: number
+    selectedIndex?: number;
+    utilities?: JSX.Element | JSX.Element[] | string | string[];
 }
 
-const Selectable = ({ list = [], selectedIndex = 0 }: ISelectable) => {
+const Selectable = ({ list = [], selectedIndex = 0, utilities }: ISelectable) => {
 
     return (
         <Column justify="flex-start" align="flex-start">
@@ -36,6 +37,7 @@ const Selectable = ({ list = [], selectedIndex = 0 }: ISelectable) => {
             </div>
             {list && <div className={css(styles.horizontal)}>
                 {list.map( (item: any, index: number) => <SelectableButton active={selectedIndex === index} >{ item }</SelectableButton> )}
+                {utilities}
             </div>}
         </Column>
     );
